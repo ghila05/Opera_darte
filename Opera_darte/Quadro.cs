@@ -63,7 +63,7 @@ namespace Opera_darte
         {
             get
             {
-                return _altezza;
+                return _lung;
             }
             set
             {
@@ -93,7 +93,7 @@ namespace Opera_darte
         {
             get
             {
-                return _prezzoOff;
+                return _prezzoTras;
             }
             set
             {
@@ -179,12 +179,13 @@ namespace Opera_darte
 
         //funzioni
 
-        public void ModDati (string artista, float altezza, float lunghezza)
+        public void ModDati (float altezza, float lunghezza, float prezzoOff, float prezzoTras)
         {
-            _artista = artista;
-            _altezza = altezza;
-            _lung = lunghezza;
 
+            Altezza = altezza;
+            Lunghezza = lunghezza;
+            PrezzoOff = prezzoOff;
+            PrezzoTras = prezzoTras;
         }
 
         public void Offerta(float offerta)
@@ -217,8 +218,6 @@ namespace Opera_darte
             return Convert.ToString(fine);
 
         }
-
-
 
 
         public Quadro Confronta(Quadro q, Quadro b)
