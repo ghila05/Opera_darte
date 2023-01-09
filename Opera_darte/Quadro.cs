@@ -220,7 +220,7 @@ namespace Opera_darte
         }
 
 
-        public Quadro Confronta(Quadro q, Quadro b)
+        public string Confronta(Quadro q, Quadro b)
         {
             if (q == null || b == null)
             {
@@ -234,10 +234,10 @@ namespace Opera_darte
 
             if (q.PrezzoOff > b.PrezzoOff)
             {
-                return q;
+                return ("il quadro "+ q + " ha prezzo maggiore");
             }
 
-            return b;
+            return ("il quadro " + b + " ha prezzo maggiore");
 
         }
 

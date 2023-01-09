@@ -11,6 +11,7 @@ namespace Opera_darte
 
         static void Main(string[] args)
         {
+            Quadro b = new Quadro("Leo", 100, 100, 2000, 25);
             Quadro q = new Quadro("Picasso",150,169,100,50);
 
             Console.WriteLine(q.ToString() + " PREZZO FINALE " + q.Prezzofin() + " ULTIMA OFFERTA " + q.Ultimaoff());
@@ -22,6 +23,9 @@ namespace Opera_darte
             q.Offerta(1000);
 
             Console.WriteLine(q.ToString() + " PREZZO FINALE " + q.Prezzofin() + " ULTIMA OFFERTA " + q.Ultimaoff());
+
+            Console.WriteLine(q.Confronta(q,b));
+
         }
     }
 }
