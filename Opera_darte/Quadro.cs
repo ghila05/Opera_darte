@@ -14,6 +14,9 @@ namespace Opera_darte
         private float _prezzoOff, _prezzoTras;
         bool _richiediTras = false;
 
+
+
+
         //set e get 
         public string Id
         {
@@ -112,16 +115,26 @@ namespace Opera_darte
                 _richiediTras = value; 
             }
         }
-        
+
+        //generazione id
+        private static Random random = new Random();
+
+        public static string RandomString(int length = 5)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+
         //costruttori
 
-        public Quadro(string id, string artista, float altezza, float lung, float prezzoOff, float prezzoTras)
+
+
+        public Quadro(string artista, float altezza, float lung, float prezzoOff, float prezzoTras)
         {
-            if (String.IsNullOrEmpty(id))
-            {
-                throw new Exception("id invalido");
-            }
-            Id = id;
+
+            Id = RandomString();
             Artista = artista;
             Altezza = altezza;
             Lunghezza = lung;
@@ -131,12 +144,12 @@ namespace Opera_darte
 
         }
 
-        public Quadro() : this("idvuoto", "n/a",0,0,0,0)
+        public Quadro() : this("n/a",0,0,0,0)
         {
 
         }
         //costruttore copia per la clone
-        protected Quadro(Quadro other) : this (other.Id, other.Artista, other.Altezza, other.Lunghezza, other.PrezzoOff, other.PrezzoTras)
+        protected Quadro(Quadro other) : this (other.Artista, other.Altezza, other.Lunghezza, other.PrezzoOff, other.PrezzoTras)
         {
 
         }
@@ -163,6 +176,71 @@ namespace Opera_darte
             return "Quadro:" + Id + ";" + Artista + ";" + Altezza + ";" + Lunghezza + ";" + PrezzoOff + ";" + PrezzoTras;
         }
 
+
+        //funzioni
+
+        public void ModDati (string artista, float altezza, float lunghezza)
+        {
+            _artista = artista;
+            _altezza = altezza;
+            _lung = lunghezza;
+
+        }
+
+        public void Offerta(float offerta)
+        {
+            if (offerta > PrezzoOff)
+            {
+                PrezzoOff = offerta;
+            }
+            else
+            {
+                throw new Exception("l'offerta base è:" + Convert.ToString(PrezzoOff));
+            }
+
+        }
+
+        public void Trasporto()
+        {
+            RichiediTras = true;
+        }
+
+        public string Ultimaoff()
+        {
+            return Convert.ToString(PrezzoOff);
+        }
+
+        public string Prezzofin()
+        {
+            float fine;
+            fine = PrezzoOff + PrezzoTras;
+            return Convert.ToString(fine);
+
+        }
+
+
+
+
+        public Quadro Confronta(Quadro q, Quadro b)
+        {
+            if (q == null || b == null)
+            {
+                throw new Exception("uno dei due quadri è nullo");
+            }
+
+            if (q.PrezzoOff == b.PrezzoOff)
+            {
+                throw new Exception("i due quadri hamno lo stesso prezzo");
+            }
+
+            if (q.PrezzoOff > b.PrezzoOff)
+            {
+                return q;
+            }
+
+            return b;
+
+        }
 
     }
 }
