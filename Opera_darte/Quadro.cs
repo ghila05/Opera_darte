@@ -130,7 +130,6 @@ namespace Opera_darte
         //costruttori
 
 
-
         public Quadro(string artista, float altezza, float lung, float prezzoOff, float prezzoTras)
         {
 
@@ -143,7 +142,6 @@ namespace Opera_darte
 
 
         }
-
         public Quadro() : this("n/a",0,0,0,0)
         {
 
@@ -181,7 +179,6 @@ namespace Opera_darte
 
         public void ModDati (float altezza, float lunghezza, float prezzoOff, float prezzoTras)
         {
-
             Altezza = altezza;
             Lunghezza = lunghezza;
             PrezzoOff = prezzoOff;
@@ -219,17 +216,16 @@ namespace Opera_darte
 
         }
 
-
         public string Confronta(Quadro q, Quadro b)
         {
             if (q == null || b == null)
             {
-                throw new Exception("uno dei due quadri è nullo");
+                return ("uno dei due quadri è nullo");
             }
 
             if (q.PrezzoOff == b.PrezzoOff)
             {
-                throw new Exception("i due quadri hamno lo stesso prezzo");
+                return ("i due quadri hamno lo stesso prezzo");
             }
 
             if (q.PrezzoOff > b.PrezzoOff)
