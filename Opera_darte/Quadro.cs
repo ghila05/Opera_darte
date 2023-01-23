@@ -24,7 +24,7 @@ namespace Opera_darte
             { 
                 return _id; 
             }
-            set
+            private set
             {
                 _id = value;
             }
@@ -36,7 +36,7 @@ namespace Opera_darte
             {
                 return _artista;
             }
-            set
+            private set
             {
                 if(value != "")
                 {
@@ -51,7 +51,7 @@ namespace Opera_darte
             {
                 return _altezza;    
             }
-            set
+            private set
             {
                 if(value > 0)
                 {
@@ -65,7 +65,7 @@ namespace Opera_darte
             {
                 return _lung;
             }
-            set
+            private set
             {
                 if (value > 0)
                 {
@@ -80,7 +80,7 @@ namespace Opera_darte
             {
                 return _prezzoOff;
             }
-            set
+            private set
             {
                 if(value > 0)
                 {
@@ -95,7 +95,7 @@ namespace Opera_darte
             {
                 return _prezzoTras;
             }
-            set
+            private set
             {
                 if(value > 0)
                 {
@@ -110,7 +110,7 @@ namespace Opera_darte
             {
                 return _richiediTras;
             }
-            set
+            private set
             {
                 _richiediTras = value; 
             }
