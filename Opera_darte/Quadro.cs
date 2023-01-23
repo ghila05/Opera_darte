@@ -42,6 +42,10 @@ namespace Opera_darte
                 {
                     _artista = value;
                 }
+                else
+                {
+                    throw new Exception("valore non valido");
+                }
 
             }
         }
@@ -57,6 +61,10 @@ namespace Opera_darte
                 {
                     _altezza = value;
                 }
+                else
+                {
+                    throw new Exception("valore non valido");
+                }
             }
         }
         public float Lunghezza
@@ -70,6 +78,10 @@ namespace Opera_darte
                 if (value > 0)
                 {
                     _lung = value;
+                }
+                else
+                {
+                    throw new Exception("valore non valido");
                 }
             }
         }
@@ -86,6 +98,10 @@ namespace Opera_darte
                 {
                     _prezzoOff = value;
                 }
+                else
+                {
+                    throw new Exception("valore non valido");
+                }
             }
         }
 
@@ -100,6 +116,10 @@ namespace Opera_darte
                 if(value > 0)
                 {
                     _prezzoTras = value;
+                }
+                else
+                {
+                    throw new Exception("valore non valido");
                 }
             }
         }
